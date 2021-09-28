@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(() => {
       if (loadingBg.getAttribute('style') === 'opacity: 1;') {
         loadingBg.style.opacity = 0.3;
-        logo.style.transform = 'rotateY(360deg)';
+        // logo.style.transform = 'rotateY(360deg)';
       } else {
         loadingBg.style.opacity = 1;
         logo.removeAttribute('style');
