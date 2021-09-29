@@ -40,17 +40,39 @@ body {
 }
 .row {
   align-self: flex-end;
-  height: 150px;
+  /* height: 150px; */
   width: 100%;
   z-index: 5;
   display: flex;
   justify-content: center;
 }
 .desktop__menu {
-  background: #c6c6ce;
+  background: #c6c6ce36;
   opacity: 0;
   border-radius: 10px;
   height: 100%;
   width: 900px;
   transition: opacity 1s linear;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 20px;
+}
+.desktop__icon {
+  width: 70px;
+  height: 70px;
+  background: #2656d1;
+  border-radius: 20px;
+  display: flex;
+  transition: transform 0.1s ease-in;
+}
+.desktop__icon:hover {
+  transform: scale(1.2);
+}
+.desktop__icon:hover::before {
+  content: "Иконка";
+  color: white;
+  width: 60px;
+  height: 20px;
+  display: inline-block;
+  align-self: flex-end;
 }

@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       clearInterval(loadingSectionAnimat);
       loadingBg.style.opacity = 1;
-      menu.style.opacity = 0.3;
+      menu.style.opacity = 1;
     }, 6000);
   };
 
