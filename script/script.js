@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   firstLoading();
 
-  const popupCreating = (id) => {
+  const popupCreating = (id, name) => {
     const popup = document.createElement('section');
 
     popup.classList.add('modal');
@@ -39,8 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
     popup.style.zIndex = 0;
     popup.innerHTML = `
       <div class="modal__header" id="${id}modalHeader">
-        <div class="modal__header__text">
-          <span class="modal__title">Название блока</span>
+        <div class="modal__header__text" id="${id}modalHeaderText">
+          <span class="modal__title">${name}</span>
         </div>
         <button class="btn__close" id="${id}btn">
           <img src="./img/closeIcon.svg" alt="close">
@@ -75,11 +75,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (target.closest('.desktop__icon')) {
         zeroZindexPopup();
+        const id = target.getAttribute('id') ? target.getAttribute('id') : target.parentNode.getAttribute('id'),
+              name = target.getAttribute('name') ? target.getAttribute('name') : target.parentNode.getAttribute('name');
         if (!activeModal) {
-          popupCreating(target.getAttribute('id'));
+          popupCreating(id, name);
         } else {
           activeModal.classList.add('modal__active');
-          modalActivInDesktop(target.getAttribute('id'));
+          modalActivInDesktop(id);
         }
       }
     });

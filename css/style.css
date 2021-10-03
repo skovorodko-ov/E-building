@@ -65,17 +65,20 @@ body {
   display: flex;
   transition: transform 0.1s ease-in;
 }
+/* .desktop__icon img {
+  width: 100%;
+} */
 .desktop__icon:hover {
   transform: scale(1.2);
 }
-.desktop__icon:hover::before {
+/* .desktop__icon:hover::before {
   content: "Иконка";
   color: white;
   width: 60px;
   height: 20px;
   display: inline-block;
   align-self: flex-end;
-}
+} */
 .modal {
   position: absolute;
   z-index: 100;
