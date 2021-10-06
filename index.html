@@ -43,19 +43,50 @@
   <!-- конец рабочего стола -->
 
   <!-- модальное окно -->
-  <!-- <section class="modal modal__active">
-    <div class="modal__header">
-      <div class="modal__header__text">
-        <span class="modal__title">Название блока</span>
+  <section class="modal" id="0modal">
+      <div class="modal__header" id="0modalHeader">
+        <div class="modal__header__text" id="0modalHeaderText">
+          <span class="modal__title">Инфармационная панель</span>
+        </div>
+        <button class="btn__close" id="0btn">
+          <img src="./img/closeIcon.svg" alt="close">
+        </button>
       </div>
-      <button class="btn__close">
-        <img src="./img/closeIcon.svg" alt="close">
-      </button>
-    </div>
-    <div class="modal__container">
-
-    </div>
-  </section> -->
+      <div class="modal__container">
+        <div class="table__title">
+          <h2 class="tittle__moadal">Объекты</h2>
+          <input class="modal__search" type="text" placeholder="Поиск...">
+        </div>
+        <table class="table">
+          <col style="width:5%">
+          <col style="width:40%">
+          <col style="width:20%">
+          <col style="width:20%">
+          <col style="width:20%">
+          <tr class="table__tr">
+            <th class="table__th">№</th>
+            <th class="table__th">
+              <span>Наименование по пректной документации</span>
+              <button class="sort__btn">a-z</button>
+            </th>
+            <th class="table__th">Участники</th>
+            <th class="table__th">Проектная документация</th>
+            <th class="table__th">
+              <span>Дата создания</span>
+              <button class="sort__btn">0-9</button>
+            </th>
+          </tr>
+          <tr class="table__tr" id="name__object">
+            <th class="table__th">1</th>
+            <th class="table__th">Наименование</th>
+            <th class="table__th">Участник</th>
+            <th class="table__th">ООО "..."</th>
+            <th class="table__th">06.10.2021</th>
+          </tr>
+        </table>
+        <button class="table__btn">Добавить объект</button>
+      </div>
+  </section>
   <!-- конец модального окна -->
   <script src="./script/script.js"></script>
 </body>

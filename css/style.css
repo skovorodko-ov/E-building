@@ -137,4 +137,54 @@ body {
   height: 95%;
   background: rgb(224, 220, 220);
   box-shadow: inset 5px 5px 5px black;
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: column;
 }
+.table__title {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 50px;
+}
+.tittle__moadal {
+  font-size: 64px;
+  line-height: 83px;
+  color: #010b23;
+  margin: 0;
+}
+.modal__search {
+  border-radius: 15px;
+  height: 30px;
+  padding-left: 10px;
+}
+.table {
+  border-collapse: collapse;
+  border: 1px solid black;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.table__tr {
+  border: 1px solid black;
+  height: 30px;
+}
+.table__th {
+  border: 1px solid black;
+  font-size: 18px;
+  line-height: 23px;
+}
+.table__btn {
+  background: #2656d1;
+  border-radius: 30px;
+  width: 150px;
+  height: 40px;
+  margin-left: 70px;
+  color: white;
+  font-size: 15px;
+  line-height: 19px;
+}
+/* .sort__btn {
+  width: 10px;
+} */

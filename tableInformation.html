@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Information</title>
+  <link rel="stylesheet" href="css\style.css">
+</head>
+<body>
+  <section class="modal modal__active">
+      <div class="modal__header">
+        <div class="modal__header__text">
+          <span class="modal__title">Название блока</span>
+        </div>
+        <button class="btn__close">
+          <img src="./img/closeIcon.svg" alt="close">
+        </button>
+      </div>
+      <!-- начало окна информации иконка первая -->
+      <div class="modal__container">
+        <div class="table__title">
+          <h2 class="tittle__moadal">Объекты</h2>
+          <input class="modal__search" type="text" placeholder="Поиск...">
+        </div>
+        <table class="table">
+          <col style="width:5%">
+          <col style="width:40%">
+          <col style="width:20%">
+          <col style="width:20%">
+          <col style="width:20%">
+          <tr class="table__tr">
+            <th class="table__th">№</th>
+            <th class="table__th">
+              <span>Наименование по пректной документации</span>
+              <button class="sort__btn">a-z</button>
+            </th>
+            <th class="table__th">Участники</th>
+            <th class="table__th">Проектная документация</th>
+            <th class="table__th">
+              <span>Дата создания</span>
+              <button class="sort__btn">0-9</button></th>
+          </tr>
+          <tr class="table__tr" id="name__object">
+            <th class="table__th">1</th>
+            <th class="table__th">Наименование</th>
+            <th class="table__th">Участник</th>
+            <th class="table__th">ООО "..."</th>
+            <th class="table__th">06.10.2021</th>
+          </tr>
+        </table>
+        <button class="table__btn">Добавить объект</button>
+      </div>
+      <!-- конец окна информации иконка первая -->
+    </section>
+  
+</body>
+</html>
