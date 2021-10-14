@@ -29,68 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   firstLoading();
 
-  // const creatingPopupInfo = (id) => {
-  //   const html = `
-  //     <div class="table__title">
-  //         <h2 class="tittle__moadal">Объекты</h2>
-  //         <input class="modal__search" type="text" placeholder="Поиск...">
-  //       </div>
-  //       <table class="table">
-  //         <col style="width:5%">
-  //         <col style="width:40%">
-  //         <col style="width:20%">
-  //         <col style="width:20%">
-  //         <col style="width:20%">
-  //         <tr class="table__tr">
-  //           <th class="table__th">№</th>
-  //           <th class="table__th">
-  //             <span>Наименование по пректной документации</span>
-  //             <button class="sort__btn">a-z</button>
-  //           </th>
-  //           <th class="table__th">Участники</th>
-  //           <th class="table__th">Проектная документация</th>
-  //           <th class="table__th">
-  //             <span>Дата создания</span>
-  //             <button class="sort__btn">0-9</button></th>
-  //         </tr>
-  //         <tr class="table__tr" id="name__object">
-  //           <th class="table__th">1</th>
-  //           <th class="table__th">Наименование</th>
-  //           <th class="table__th">Участник</th>
-  //           <th class="table__th">ООО "..."</th>
-  //           <th class="table__th">06.10.2021</th>
-  //         </tr>
-  //       </table>
-  //       <button class="table__btn">Добавить объект</button>
-  //   `;
-  //   return html;
-  // };
-
-  // const popupCreating = (id, name) => {
-  //   const popup = document.createElement('section'),
-  //         popupInfo = document.createElement('div');
-  //   popupInfo.classList.add('modal__container');
-  //   popupInfo.innerHTML = creatingPopupInfo(id);
-
-  //   popup.classList.add('modal');
-  //   popup.classList.add('modal__active');
-  //   popup.setAttribute('id', id + 'modal');
-  //   popup.style.transform = `translate(${id * 10}px, ${id * 30}px)`;
-  //   popup.style.zIndex = 0;
-  //   popup.innerHTML = `
-  //     <div class="modal__header" id="${id}modalHeader">
-  //       <div class="modal__header__text" id="${id}modalHeaderText">
-  //         <span class="modal__title">${name}</span>
-  //       </div>
-  //       <button class="btn__close" id="${id}btn">
-  //         <img src="./img/closeIcon.svg" alt="close">
-  //       </button>
-  //     </div>
-  //   `;
-  //   desktop.append(popup);
-  //   popup.append(popupInfo);
-  // };
-
   const zeroZindexPopup = () => {
     const popups = desktop.querySelectorAll('.modal'); 
     popups.forEach(elem => {
@@ -103,13 +41,42 @@ document.addEventListener('DOMContentLoaded', () => {
     activeModal.style.zIndex = 1;
   };
 
+  const creatingNewRow = () => {
+    const row = document.createElement('tr');
+    row.classList.add('table__tr');
+
+    let data = localStorage.getItem('0modal'),
+        name = '',
+        date = '';
+
+    data = JSON.parse(data);
+
+    if (data) {
+      name = data['0name'];
+      date = data['0date'];
+    }
+
+      row.innerHTML = `
+        <th class="table__th">1</th>
+        <th class="table__th">${name}</th>
+        <th class="table__th">
+          <button class="btn__add_table" id="add__participants">Посмотреть</button>
+        </th>
+        <th class="table__th">
+          <button class="btn__add_table" id="add__participants">Добавить</button>
+        </th>
+        <th class="table__th">${date}</th>
+      `;
+      return row;
+  };
+
+
   const popupWindowOpen = () => {
     const desktopMenu = document.querySelector('.desktop__menu');
 
     desktopMenu.addEventListener('click', (event) => {
       let target = event.target;
-      const id = target.getAttribute('id') ? target.getAttribute('id') : target.parentNode.getAttribute('id'),
-          name = target.getAttribute('name') ? target.getAttribute('name') : target.parentNode.getAttribute('name');
+      const id = target.getAttribute('id') ? target.getAttribute('id') : target.parentNode.getAttribute('id');
 
       const activeModal = document.getElementById(id + 'modal');
 
@@ -118,6 +85,14 @@ document.addEventListener('DOMContentLoaded', () => {
         modalActivInDesktop(id);
 
         activeModal.classList.toggle('modal__active');
+
+        const table = activeModal.querySelector('table');
+        
+        const row = creatingNewRow();
+
+        table.append(row);
+
+        addParticipantsPopupOpenClose();
       }
     });
   };
@@ -150,7 +125,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const mouseDown = (id) => {
       document.addEventListener('mousedown', (event) => {
-        event.preventDefault();
         let target = event.target;
         zeroZindexPopup();
 
@@ -184,4 +158,80 @@ document.addEventListener('DOMContentLoaded', () => {
   popupWindowOpen();
   popupWindowClosing();
   moviWindows();
+
+  const savingInputValues = (modalWindow) => {
+    let flag = false;
+    let obj = {};
+    const inputs = modalWindow.querySelectorAll('input');
+    inputs.forEach(elem => {
+      if (elem.value === '') {
+        flag = true;
+      } else {
+        obj[elem.id] = elem.value;
+      }
+    });
+    if (flag) {
+      return alert('Все поля должны быть заполнены!');
+    }
+    modalWindow.classList.remove('modal__active');
+    return obj;
+  };
+
+
+  const closingSmallModals = (smallModal, id) => {
+      smallModal.addEventListener('click', (event) => {
+        let target = event.target;
+        if (smallModal.classList.contains('modal__active')) {
+          if (!target.closest('.infoPanel__object__container')) {
+          smallModal.classList.remove('modal__active');
+          }
+          if (target.closest('.table__btn')) {
+            const data = savingInputValues(smallModal);
+            if (data) {
+              localStorage[id] = JSON.stringify(data);
+            }
+          }
+        }
+      });
+  };
+
+
+  const doInpopup = (id) => {
+    const popup = document.getElementById(id);
+
+    const smallModal = popup.querySelector('.infoPanel__object');
+
+    popup.addEventListener('click', event => {
+      let target = event.target;
+
+      if (target.closest('.tbn__add')) {
+        smallModal.classList.add('modal__active');
+      }
+    });
+
+    closingSmallModals(smallModal, id);
+  };
+
+  doInpopup('0modal');
+
+  const addParticipantsPopupOpenClose = () => {
+    const addParticipantsBtn = document.getElementById('add__participants');
+
+    addParticipantsBtn.addEventListener('click', () => {
+      const smallModal = document.querySelector('.infoPanle__participants');
+
+      smallModal.style.display = 'flex';
+
+      smallModal.addEventListener('click', event => {
+        let target = event.target;
+
+        if (!target.closest('.participants__container') || target.closest('.prev')) {
+          smallModal.style.display = 'none';
+        }
+      });
+      
+    });
+  };
+
+  
 });

@@ -1,5 +1,50 @@
+@font-face {
+  font-family: "PTSans";
+  src: url("../fonts/PTSans-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "PTSans";
+  src: url("../fonts/PTSans-Bold.ttf");
+  font-weight: bold;
+  font-style: bold;
+}
+@font-face {
+  font-family: "PTSans";
+  src: url("../fonts/PTSans-Italic.ttf");
+  font-weight: italic;
+  font-style: italic;
+}
+@font-face {
+  font-family: "PTSans";
+  src: url("../fonts/PTSans-BoldItalic.ttf");
+  font-weight: boldItalic;
+  font-style: boldItalic;
+}
+@font-face {
+  font-family: "PTSansNarrow";
+  src: url("../fonts/PTSansNarrow-Bold.ttf");
+  font-weight: bold;
+  font-style: bold;
+}
+@font-face {
+  font-family: "PTSansNarrow";
+  src: url("../fonts/PTSansNarrow-Regular.ttf");
+  font-weight: bold;
+  font-style: bold;
+}
 body {
   background-color: #232326;
+  font-family: PTSans;
+  font-style: normal;
+  font-weight: normal;
+}
+h1,
+h2,
+h3,
+* {
+  font-family: PTSansNarrow;
 }
 .loading {
   width: 100vw;
@@ -39,7 +84,6 @@ body {
 }
 .row {
   align-self: flex-end;
-  /* height: 150px; */
   width: 100%;
   z-index: 5;
   display: flex;
@@ -65,25 +109,14 @@ body {
   display: flex;
   transition: transform 0.1s ease-in;
 }
-/* .desktop__icon img {
-  width: 100%;
-} */
 .desktop__icon:hover {
   transform: scale(1.2);
 }
-/* .desktop__icon:hover::before {
-  content: "Иконка";
-  color: white;
-  width: 60px;
-  height: 20px;
-  display: inline-block;
-  align-self: flex-end;
-} */
+
 .modal {
   position: absolute;
   z-index: 100;
   background: rgba(0, 0, 0, 0.7);
-  /* display: flex; */
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
@@ -96,14 +129,11 @@ body {
   box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.301);
   display: none;
 }
-.modal__active {
-  display: flex;
-}
+
 .modal__header {
   height: 30px;
   width: 100%;
   display: flex;
-  /* justify-content: space-between; */
   align-self: flex-start;
   background: rgb(17, 77, 126);
   border: solid 1px black;
@@ -140,6 +170,7 @@ body {
   padding: 20px 20px;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 .table__title {
   display: flex;
@@ -152,6 +183,7 @@ body {
   line-height: 83px;
   color: #010b23;
   margin: 0;
+  text-align: center;
 }
 .modal__search {
   border-radius: 15px;
@@ -180,11 +212,85 @@ body {
   border-radius: 30px;
   width: 150px;
   height: 40px;
-  margin-left: 70px;
+  /* margin-left: 70px; */
   color: white;
   font-size: 15px;
   line-height: 19px;
 }
-/* .sort__btn {
-  width: 10px;
-} */
+.smallModal {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.712);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.infoPanel__object__container {
+  width: 600px;
+  background: #ffffff;
+  border-radius: 30px;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.table__infoPanelObj {
+  margin-top: 50px;
+  font-size: 16px;
+  line-height: 21px;
+  text-align: left;
+  margin-bottom: 50px;
+}
+.infoPanel__object__title {
+  font-family: PTSansNarrow;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 31px;
+}
+.infoPanel__object__tr {
+  height: 50px;
+}
+.table__th__input {
+  padding-left: 20px;
+  border: none;
+  width: 80%;
+  outline: none;
+  font-size: 16px;
+  line-height: 21px;
+}
+.modal__active {
+  display: flex;
+}
+.participants__container:first-child {
+  align-items: flex-start;
+}
+.infoPanel__participants__title {
+  font-family: PTSansNarrow;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 47px;
+}
+.btn__container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.btn__add_table {
+  border: none;
+  cursor: pointer;
+  background: rgb(224, 220, 220);
+}
+.btn__add_table:hover {
+  color: #2656d1;
+}
+.th__addParticipants {
+  text-align: center;
+}
+.tr__addParticipants_select {
+  width: 70%;
+}

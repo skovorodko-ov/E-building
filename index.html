@@ -42,11 +42,11 @@
   </section>
   <!-- конец рабочего стола -->
 
-  <!-- модальное окно -->
+  <!-- модальное окно Информационная панель-->
   <section class="modal" id="0modal">
       <div class="modal__header" id="0modalHeader">
         <div class="modal__header__text" id="0modalHeaderText">
-          <span class="modal__title">Инфармационная панель</span>
+          <span class="modal__title">Информационная панель</span>
         </div>
         <button class="btn__close" id="0btn">
           <img src="./img/closeIcon.svg" alt="close">
@@ -69,25 +69,218 @@
               <span>Наименование по пректной документации</span>
               <button class="sort__btn">a-z</button>
             </th>
-            <th class="table__th">Участники</th>
+            <th class="table__th">
+              Участники
+            </th>
             <th class="table__th">Проектная документация</th>
             <th class="table__th">
               <span>Дата создания</span>
               <button class="sort__btn">0-9</button>
             </th>
           </tr>
-          <tr class="table__tr" id="name__object">
+          <!-- <tr class="table__tr" id="name__object">
             <th class="table__th">1</th>
             <th class="table__th">Наименование</th>
-            <th class="table__th">Участник</th>
+            <th class="table__th">
+              <button class="btn__add_table" id="add__participants">Посмотреть</button>
+            </th>
             <th class="table__th">ООО "..."</th>
             <th class="table__th">06.10.2021</th>
-          </tr>
+          </tr> -->
         </table>
-        <button class="table__btn">Добавить объект</button>
+        <button class="table__btn tbn__add">Добавить объект</button>
+        <!-- модалка информации о объекте -->
+        <div class="smallModal infoPanel__object">
+          <div class="infoPanel__object__container">
+            <h2 class="tittle__moadal infoPanel__object__title">Объект капитального строительства</h2>
+            <table class="table table__infoPanelObj">
+              <col style="width:50%">
+              <col style="width:50%">
+              <tr class="table__tr infoPanel__object__tr">
+                <th class="table__th">Наименование по проектной документации</th>
+                <th class="table__th">
+                  <input type="text" class="table__th__input" id="0name">
+                </th>
+              </tr>
+              <tr class="table__tr infoPanel__object__tr">
+                <th class="table__th">Почтовый или строительный адрес объекта капитального строительства</th>
+                <th class="table__th">
+                  <input type="text" class="table__th__input" id="0post">
+                </th>
+              </tr>
+              <tr class="table__tr infoPanel__object__tr">
+                <th class="table__th">Плановые сроки производства работ</th>
+                <th class="table__th">
+                  <input type="text" class="table__th__input" id="0deadline">
+                </th>
+              </tr>
+            </table>
+            <button class="table__btn btn__save">Сохранить и выйти</button>
+          </div>
+        </div>
+        <!-- конец модалки информации о объекте -->
+
+        <!-- модалка Участники -->
+                      <div class="smallModal infoPanle__participants">
+                        <div class="infoPanel__object__container participants__container">
+                          <h2 class="tittle__moadal infoPanel__participants__title">Участники</h2>
+                          <table class="table table__infoPanelObj">
+                            <col style="width: 5%;">
+                            <col style="width: 15%;">
+                            <col style="width: 25%;">
+                            <col style="width: 20%;">
+                            <col style="width: 15%;">
+                            <col style="width: 20%;">
+                            <tr class="table__tr infoPanel__object__tr">
+                              <th class="table__th">№</th>
+                              <th class="table__th">Категория</th>
+                              <th class="table__th">ФИО</th>
+                              <th class="table__th">Должность</th>
+                              <th class="table__th">Права</th>
+                              <th class="table__th">Контакты</th>
+                            </tr>
+                            <tr class="table__tr infoPanel__object__tr">
+                              <th class="table__th"></th>
+                              <th class="table__th"></th>
+                              <th class="table__th"></th>
+                              <th class="table__th"></th>
+                              <th class="table__th"></th>
+                              <th class="table__th"></th>
+                            </tr>
+                      
+                          </table>
+                          <div class="btn__container">
+                            <button class="table__btn prev">Назад</button>
+                            <button class="table__btn">Добавить участников</button>
+                          </div>
+                        </div>
+                      
+                      </div>
+        <!-- конец модалки участники -->
+        <!-- модалка добавления участников -->
+        <div class="smallModal infoPanle__addParticipants">
+          <div class="infoPanel__object__container">
+            <h2 class="tittle__moadal infoPanel__object__title">Добавить участника</h2>
+            <table class="table table__infoPanelObj">
+              <col style="width: 50%;">
+              <col style="width: 50%;">
+              <tr class="table__tr tr__addParticipants" style="height: 50px;">
+                <th class="table__th th__addParticipants">
+                  <select name="" id="" class="tr__addParticipants_select">
+                    <option value="">Заказчик</option>
+                    <option value="">Подрядчик</option>
+                    <option value="">Субподрядчик</option>
+                  </select>
+                </th>
+                <th class="table__th">
+                  <input type="text" class="table__th__input">
+                </th>
+              </tr>
+              <tr class="table__tr tr__addParticipants" style="height: 50px;">
+                <th class="table__th th__addParticipants">
+                  <select name="" id="" class="tr__addParticipants_select">
+                    <option value="">Заказчик</option>
+                    <option value="">Подрядчик</option>
+                    <option value="">Субподрядчик</option>
+                  </select>
+                </th>
+                <th class="table__th">
+                  <input type="text" class="table__th__input">
+                </th>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <!-- конец модалки добавления участников -->
+        <!-- модалка проектные организации -->
+        <div class="smallModal infoPanle__projectOrganization">
+          <div class="infoPanel__object__container">
+            <table class="table table__infoPanelObj">
+              <col style="width: 5%;">
+              <col style="width: 45%;">
+              <col style="width: 25%;">
+              <col style="width: 25%;">
+              <tr class="table__tr">
+                <th class="table__th">№</th>
+                <th class="table__th">Наименование проектной организации</th>
+                <th class="table__th">Шифр</th>
+                <th class="table__th">Действие</th>
+              </tr>
+              <tr class="table__tr">
+                <th class="table__th"></th>
+                <th class="table__th"></th>
+                <th class="table__th"></th>
+                <th class="table__th"></th>
+              </tr>
+            </table>
+            <button class="table__btn btn__save">Сохранить и выйти</button>
+          </div>
+        </div>
+        <!-- конец модалки проектные организации -->
+        <!-- модалка участников -->
+        <div class="smallModal">
+          <div class="infoPanel__object__container">
+            <table class="table table__infoPanelObj">
+              <col style="width: 50%;">
+              <col style="width: 50%;">
+              <tr class="table__tr">
+                <th class="table__th">Должность</th>
+                <th class="table__th">
+                  <input type="text" class="table__th__input">
+                </th>
+              </tr>
+              <tr class="table__tr">
+                <th class="table__th">Фамилия, инициалы</th>
+                <th class="table__th">
+                  <input type="text" class="table__th__input">
+                </th>
+              </tr>
+              <tr class="table__tr">
+                <th class="table__th">Реквезиты исполнительного документа, подверждающего полномочия</th>
+                <th class="table__th">
+                  <input type="text" class="table__th__input">
+                </th>
+              </tr>
+              <tr class="table__tr">
+                <th class="table__th">Идентификационный номер
+                в национальном реестре
+                специалистов в области
+                строительства</th>
+                <th class="table__th">
+                  <input type="text" class="table__th__input">
+                </th>
+              </tr>
+              <tr class="table__tr">
+                <th class="table__th">Контактный телефон</th>
+                <th class="table__th">
+                  <input type="text" class="table__th__input">
+                </th>
+              </tr>
+              <tr class="table__tr">
+                <th class="table__th">Email</th>
+                <th class="table__th">
+                  <input type="text" class="table__th__input">
+                </th>
+              </tr>
+              <tr class="table__tr">
+                <th class="table__th">Права</th>
+                <th class="table__th">
+                  <select name="" id="" class="tr__addParticipants_select">
+                    <option value="">Редактирование</option>
+                    <option value="">Постановка задач</option>
+                    <option value="">Испонитель</option>
+                  </select>
+                </th>
+              </tr>
+            </table>
+            <button class="table__btn btn__save">Сохранить и выйти</button>
+          </div>
+        </div>
+        <!-- конец модалки участник -->
       </div>
+      
   </section>
-  <!-- конец модального окна -->
+  <!-- конец модального окна Информационная панель-->
   <script src="./script/script.js"></script>
 </body>
 </html>
