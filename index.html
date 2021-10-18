@@ -18,7 +18,7 @@
     <!-- меню рабочего стола -->
     <div class="row">
       <div class="desktop__menu">
-        <div class="desktop__icon" id="0" name='Информационная панель'>
+        <div class="desktop__icon" id="iconInfoPanel" name='Информационная панель'>
           <img src="./img/information1.png" alt="iconInformation">
         </div>
         <div class="desktop__icon" id="1" name='Ход строительства'>
@@ -43,12 +43,12 @@
   <!-- конец рабочего стола -->
 
   <!-- модальное окно Информационная панель-->
-  <section class="modal" id="0modal">
+  <section class="modal" id="infoPanel">
       <div class="modal__header" id="0modalHeader">
         <div class="modal__header__text" id="0modalHeaderText">
           <span class="modal__title">Информационная панель</span>
         </div>
-        <button class="btn__close" id="0btn">
+        <button class="btn__close" id="btnInfoPanelClose">
           <img src="./img/closeIcon.svg" alt="close">
         </button>
       </div>
@@ -57,7 +57,7 @@
           <h2 class="tittle__moadal">Объекты</h2>
           <input class="modal__search" type="text" placeholder="Поиск...">
         </div>
-        <table class="table">
+        <table class="table" id="tableInfoObject">
           <col style="width:5%">
           <col style="width:40%">
           <col style="width:20%">
@@ -88,9 +88,9 @@
             <th class="table__th">06.10.2021</th>
           </tr> -->
         </table>
-        <button class="table__btn tbn__add">Добавить объект</button>
+        <button class="table__btn tbn__add" id="btnAddObject">Добавить объект</button>
         <!-- модалка информации о объекте -->
-        <div class="smallModal infoPanel__object">
+        <div class="smallModal infoPanel__object" id="modalObject">
           <div class="infoPanel__object__container">
             <h2 class="tittle__moadal infoPanel__object__title">Объект капитального строительства</h2>
             <table class="table table__infoPanelObj">
@@ -99,19 +99,19 @@
               <tr class="table__tr infoPanel__object__tr">
                 <th class="table__th">Наименование по проектной документации</th>
                 <th class="table__th">
-                  <input type="text" class="table__th__input" id="0name">
+                  <input type="text" class="table__th__input" id="nameObject">
                 </th>
               </tr>
               <tr class="table__tr infoPanel__object__tr">
                 <th class="table__th">Почтовый или строительный адрес объекта капитального строительства</th>
                 <th class="table__th">
-                  <input type="text" class="table__th__input" id="0post">
+                  <input type="text" class="table__th__input" id="postAdresObject">
                 </th>
               </tr>
               <tr class="table__tr infoPanel__object__tr">
                 <th class="table__th">Плановые сроки производства работ</th>
                 <th class="table__th">
-                  <input type="text" class="table__th__input" id="0deadline">
+                  <input type="text" class="table__th__input" id="deadlineObject">
                 </th>
               </tr>
             </table>
@@ -121,7 +121,7 @@
         <!-- конец модалки информации о объекте -->
 
         <!-- модалка Участники -->
-                      <div class="smallModal infoPanle__participants">
+                      <div class="smallModal infoPanle__participants" id="modalParticipant">
                         <div class="infoPanel__object__container participants__container">
                           <h2 class="tittle__moadal infoPanel__participants__title">Участники</h2>
                           <table class="table table__infoPanelObj">
@@ -151,14 +151,14 @@
                           </table>
                           <div class="btn__container">
                             <button class="table__btn prev">Назад</button>
-                            <button class="table__btn">Добавить участников</button>
+                            <button class="table__btn" id="btaAddParticipant">Добавить участников</button>
                           </div>
                         </div>
                       
                       </div>
         <!-- конец модалки участники -->
         <!-- модалка добавления участников -->
-        <div class="smallModal infoPanle__addParticipants">
+        <div class="smallModal infoPanle__addParticipants" id="modalAddParticipant">
           <div class="infoPanel__object__container">
             <h2 class="tittle__moadal infoPanel__object__title">Добавить участника</h2>
             <table class="table table__infoPanelObj">
@@ -176,7 +176,7 @@
                   <input type="text" class="table__th__input">
                 </th>
               </tr>
-              <tr class="table__tr tr__addParticipants" style="height: 50px;">
+              <!-- <tr class="table__tr tr__addParticipants" style="height: 50px;">
                 <th class="table__th th__addParticipants">
                   <select name="" id="" class="tr__addParticipants_select">
                     <option value="">Заказчик</option>
@@ -187,13 +187,13 @@
                 <th class="table__th">
                   <input type="text" class="table__th__input">
                 </th>
-              </tr>
+              </tr> -->
             </table>
           </div>
         </div>
         <!-- конец модалки добавления участников -->
         <!-- модалка проектные организации -->
-        <div class="smallModal infoPanle__projectOrganization">
+        <div class="smallModal infoPanle__projectOrganization" id="modalProjectOrganization">
           <div class="infoPanel__object__container">
             <table class="table table__infoPanelObj">
               <col style="width: 5%;">
@@ -282,5 +282,6 @@
   </section>
   <!-- конец модального окна Информационная панель-->
   <script src="./script/script.js"></script>
+  <script src="./script/infoPanel.js"></script>
 </body>
 </html>
